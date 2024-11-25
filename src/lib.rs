@@ -7,6 +7,8 @@
 
 #![cfg_attr(not(test), no_std)]
 
+pub mod interrupts;
+
 const CMOS_SECOND_REGISTER: u8 = 0x00;
 const CMOS_MINUTE_REGISTER: u8 = 0x02;
 const CMOS_HOUR_REGISTER: u8 = 0x04;
