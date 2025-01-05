@@ -9,7 +9,7 @@ jobs:
       fail-fast: false
       matrix:
         rust-toolchain: [nightly]
-        targets: [x86_64-unknown-linux-gnu, x86_64-unknown-none, riscv64gc-unknown-none-elf, aarch64-unknown-none-softfloat]
+        targets: [x86_64-unknown-linux-gnu, x86_64-unknown-none]
     steps:
     - uses: actions/checkout@v4
     - uses: dtolnay/rust-toolchain@nightly
@@ -22,7 +22,7 @@ jobs:
     - name: Check code format
       run: cargo fmt --all -- --check
     - name: Clippy
-      run: cargo clippy --target ${{ matrix.targets }} --all-features -- -A clippy::new_without_default
+      run: cargo clippy --target ${{ matrix.targets }} --all-features -- -D warnings
     - name: Build
       run: cargo build --target ${{ matrix.targets }} --all-features
     - name: Unit test

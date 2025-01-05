@@ -205,15 +205,15 @@ cfg_if::cfg_if! {
 
         fn read_cmos_register(register: u8) -> u8 {
             unsafe {
-                COMMAND_PORT.write(CMOS_DISABLE_NMI | register);
-                DATA_PORT.read()
+                (*{ &raw mut COMMAND_PORT }).write(CMOS_DISABLE_NMI | register);
+                (*{ &raw mut DATA_PORT }).read()
             }
         }
 
         fn write_cmos_register(register: u8, value: u8) {
             unsafe {
-                COMMAND_PORT.write(CMOS_DISABLE_NMI | register);
-                DATA_PORT.write(value)
+                (*{ &raw mut COMMAND_PORT }).write(CMOS_DISABLE_NMI | register);
+                (*{ &raw mut DATA_PORT }).write(value)
             }
         }
 
