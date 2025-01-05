@@ -1,0 +1,1 @@
+searchState.loadedDescShard("x86_rtc", 0, "System Real Time Clock (RTC) Drivers for x86_64 based on …\nThe System Real Time Clock structure for x86 based on CMOS.\nReturns the argument unchanged.\nReturns the current time in seconds since UNIX epoch.\nCalls <code>U::from(self)</code>.\nConstruct a new CMOS RTC structure.\nSets the current time in seconds since UNIX epoch.")
